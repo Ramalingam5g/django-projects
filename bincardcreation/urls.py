@@ -24,9 +24,9 @@ urlpatterns = [
     path('post_method',views.post_method),
     path('',views.display),
     path('display/',views.display,name="display"),
-    # path('edit/<int:receipt_no>', views.edit),  
-    path('update/<int:id>', views.update),  
-    path('delete/<int:id>', views.delete), 
+    path('edit/<str:id>', views.edit),  
+    path('update/<str:id>', views.update),  
+    path('delete/<str:id>', views.delete), 
 ]
 
 

@@ -1,65 +1,31 @@
-<html>
+ <html>
 
 <head>
-	<link
-	rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-	<style>
-		.i-am-centered {
-			margin: auto;
-			max-width: 300px;
-			padding-top: 20%;
-		}
-	</style>
+	
+	  
 </head>
-
+<h1> Material stock </h1>
 <body>
 	<div class="i-am-centered">
 		<form method="POST">
 			{% csrf_token %}
+
 			<div class="form-group">
-				<label>Transaction type </label>
-				{{ form.transaction_type }}
-			</div>
-			<div class="form-group">
-				<label>Material Name </label>
+				<label class="control-label col-sm-1" for="material_name">Material Name: </label>
 				{{ form.material_name }}
 			</div>
+			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+			
 			<div class="form-group">
-				<label>Date</label>
+				<label class="control-label col-sm-3" for="date"> Date:</label>
 				{{ form.date }}
 			</div>
 			<div class="form-group">
-				<label>Doc.no</label>
+				<label class="control-label col-sm-3" for="material_name">Document Number</label>
 				{{ form.doc_no }}
 			</div>
-            
-<script type="text/javascript">
-    function ShowHideDiv() {
-        var ddlPassport = document.getElementById("ddlPassport");
-        var dvPassport = document.getElementById("dvPassport");
-        dvPassport.style.display = ddlPassport.value == "i" ? "block" : "none";
-        dvPassport.style.display = ddlPassport.value == "r" ? "block" : "none";
-    }
-</script>
-<span>Transaction type</span>
-    <select id = "ddlPassport" onchange = "ShowHideDiv()">
-        <option value="r">Received From</option>
-        <option value="i">issued to</option>            
-    </select>
-<hr />
-<div id="dvPassport" style="display: none">
-    Received From:
-    <input type="text" id="txtPassportNumber" />
-    
-</div>
-            
-           
-            <div class="form-group">
-				<label>issue</label>
-				{{ form.issue }}
-			</div>
-            <div class="form-group">
+			<div class="form-group">
 				<label>balance</label>
 				{{ form.balance }}
 			</div>
@@ -71,9 +37,131 @@
 				<label>verified by</label>
 				{{ form.verified_by }}
 			</div>
+			<script type="text/javascript">
+				$(function () {
+					$("#ddlPassport").change(function () {
+						if ($(this).val() == "Y") {
+							$("#dvPassport").show();
+							$("#hello").hide();
+						}
+						if ($(this).val() == "N")
+						 {
+							$("#hello").show();
+							$("dvpassport").hide();
+						}
+					});
+				});
+				
+			</script>
+			<span>Transaction information:</span>
+			<select id="ddlPassport">
+				<option value="N">received from</option>
+				<option value="Y">issued to</option>
+			</select>
+			<hr />
+			<div id="dvPassport" style="display: none">
+				isssued to:
+				<input type="text" id="txtPassportNumber" />
+			</div>
+			<div id="hello" style="display: none">
+				receipt Number:
+				<input type="text" id="txtPassportNumber" />
+			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</div>
 </body>
+</center>
 
 </html>
+<style> -->
+body{
+	background-color: #25274d;
+}
+.contact{
+	padding: 4%;
+	height: 400px;
+}
+.col-md-3{
+	background: #ff9b00;
+	padding: 4%;
+	border-top-left-radius: 0.5rem;
+	border-bottom-left-radius: 0.5rem;
+}
+.contact-info{
+	margin-top:10%;
+}
+.contact-info img{
+	margin-bottom: 15%;
+}
+.contact-info h2{
+	margin-bottom: 10%;
+}
+.col-md-9{
+	background: #fff;
+	padding: 3%;
+	border-top-right-radius: 0.5rem;
+	border-bottom-right-radius: 0.5rem;
+}
+.contact-form label{
+	font-weight:600;
+}
+.contact-form button{
+	background: #25274d;
+	color: #fff;
+	font-weight: 600;
+	width: 25%;
+}
+.contact-form button:focus{
+	box-shadow:none;
+}
+</style> -->
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<!-- 
+<div class="container contact">
+	<div class="row">
+		
+		<div class="col-md-9">
+			<div class="contact-form">
+				<div class="form-group">
+				  <label class="control-label col-sm-5" for="material_name">Material Name:</label>
+				  <div class="col-sm-10">          
+					<input type="text" class="form-control" id="material_name" placeholder="{{ form.material_name }}">
+				  </div>
+				</div>
+				<div class="form-group">
+				  <label class="control-label col-sm-2" for="date">Date:</label>
+				  <div class="col-sm-10">          
+					<input type="date" class="form-control" id="date" placeholder="{{ form.date }}" >
+				  </div>
+				</div>
+				<div class="form-group">
+				  <label class="control-label col-sm-5" for="doc_no">Document Number:</label>
+				  <div class="col-sm-10">
+					<input type="text" class="form-control" id="doc_no" placeholder="{{ form.doc_no }}" >
+				  </div>
+				</div>
+				<div class="form-group">
+				  <label class="control-label col-sm-5" for="verification_date">Verification Date:</label>
+				  <div class="col-sm-10">
+					<input type="text" class="form-control" id="verification_date" placeholder="{{ form.verification_date }}" >
+				  </div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-5" for="verification_date">Verified by:</label>
+					<div class="col-sm-10">
+					  <input type="text" class="form-control" id="verification_date" placeholder="{{ form.verified_by }}" >
+					</div>
+				  </div>
+				<div class="form-group">        
+				  <div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-default">Submit</button>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> --> -->

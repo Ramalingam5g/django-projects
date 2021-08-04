@@ -38,6 +38,9 @@
 </head>  
 <body>  
 <table class="table table-striped table-bordered table-sm">
+  <center>
+    <h1> Material inward lecture</h1>
+  </center>
     
     <thead class="thead-dark">  
     <tr>  
@@ -45,7 +48,6 @@
         <th> Document Number </th>
         <th> Material Name</th>
         <th> Received From</th>
-        
         <th> Issue</th>
         <th> Balance</th>
         <th> Verified By</th>  
@@ -59,12 +61,11 @@
         <td> {{a.doc_no}}</td>
         <td> {{a.material_name }}</td>
         <td> {{a.received_from}}</td>
-        
         <td> {{a.issue}}</td>
         <td> {{a.balance}}</td>
         <td> {{a.verified_by}}</td>  
         <td>  
-            <a ><span class="glyphicon glyphicon-pencil" onclick="edit()">update</span></a>  
+            <a href='/update/{{ a.id }}'><span class="glyphicon glyphicon-pencil" onclick="edit()">update</span></a>  
             <a href="/delete/{{ a.id }}">Delete</a>  
         </td>  
     </tr>  

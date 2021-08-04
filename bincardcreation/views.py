@@ -16,7 +16,7 @@ def display(request):
     return render(request,"display.html", context ) 
 
 def post_method(request):
-    import pdb; pdb.set_trace()
+    # import pdb; pdb.set_trace()
     form = MaterialForm()
     if request.method == 'POST':
         form = MaterialForm(request.POST)
@@ -46,7 +46,7 @@ def update(request, id):
 	return render(request, 'Edit.html', context)
 
 def delete(request, id):
-	order = MaterialForm.objects.get(id=id)
+	order = Material.objects.get(id=id)
 	order.delete()
 	return redirect('/display')
 
